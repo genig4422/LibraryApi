@@ -47,6 +47,7 @@ namespace TestApplication.DataConnection
         public DbSet<Publisher> Publisher { get; set; }
         public DbSet<Book_Author> Books_Authors { get; set; }
         public DbSet<Author> Author { get; set; }
+         public DbSet<Category> Category { get; set; }
         public DbSet<BorrowRecord> BorrowRecords { get; set; }
         public DbSet<Members> Members { get; set; }
     }

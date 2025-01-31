@@ -13,7 +13,7 @@ namespace TestApplication.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20250129215339_Members")]
-    partial class Members
+    partial class MembersMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

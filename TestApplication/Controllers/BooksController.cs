@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TestApplication.DataConnection.Services;
 using TestApplication.DataConnection.ViewModels;
@@ -6,6 +7,7 @@ using TestApplication.DataConnection.ViewModels;
 namespace TestApplication.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("AllowLocalhostOrigins")]
     [ApiController]
     public class BooksController : ControllerBase
     {
@@ -35,8 +37,9 @@ namespace TestApplication.Controllers
             return Ok(book);
         }
 
-        [HttpPut("udpdate-book-by-id/{id}")]
-        public IActionResult UpdateBookById(int id, [FromBody] BookVM book)
+        [HttpPut("update-book-by-id/{id}")]
+
+        public IActionResult UpdateBookById(int id, [FromBody] BookEditVM book)
         {
             var updatedBook = _booksService.UpdateBookById(id, book);
             return Ok(updatedBook);

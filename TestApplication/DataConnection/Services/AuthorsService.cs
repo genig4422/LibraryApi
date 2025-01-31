@@ -45,5 +45,7 @@ namespace TestApplication.DataConnection.Services
             return _author;
         }
 
+        public List<Author> GetAllAuthors() => _context.Author.ToList();
+
     }
 }

@@ -29,9 +29,9 @@ namespace TestApplication.DataConnection.Services
 
         public void RemoveMemberByID(int memberId) {
 
-            var _members = _context.Members.FirstOrDefault(n => n.Id == memberId);
+            var _members = _context.Category.FirstOrDefault(n => n.Id == memberId);
             if (_members != null) {
-                _context.Members.Remove(_members);
+                _context.Category.Remove(_members);
                 _context.SaveChanges();
             }
         }

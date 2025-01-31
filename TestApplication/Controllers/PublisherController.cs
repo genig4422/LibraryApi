@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TestApplication.DataConnection.Services;
 using TestApplication.DataConnection.ViewModels;
@@ -6,6 +7,7 @@ using TestApplication.DataConnection.ViewModels;
 namespace TestApplication.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("AllowLocalhostOrigins")]
     [ApiController]
     public class PublisherController : ControllerBase
     {
@@ -27,8 +29,8 @@ namespace TestApplication.Controllers
 
         public IActionResult GetAllPublishers()
         {
-            _publisherService.GetAllPublishers();
-            return Ok();    
+           var allPublishers = _publisherService.GetAllPublishers();
+            return Ok(allPublishers);    
         }
 
         [HttpGet("get-publisher-books-with-authors/{id}")]

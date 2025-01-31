@@ -15,15 +15,14 @@ builder.Services.AddTransient<BooksService>();
 builder.Services.AddTransient<AuthorsService>();
 builder.Services.AddTransient<PublisherService>();
 builder.Services.AddTransient<MemberServices>();
+builder.Services.AddTransient<CategoryServices>();
 
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAllOrigins",
-        builder => builder.AllowAnyOrigin()
-                          .AllowAnyMethod()
-                          .AllowAnyHeader());
-});
+
+
+
+
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -31,6 +30,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+app.UseRouting();
+
+app.UseCors(builder =>
+{
+    builder.WithOrigins("http://127.0.0.1:5500") // Replace with your frontend domain
+           .AllowAnyHeader()
+           .AllowAnyMethod();
+});
 
 AppDbInitializer.Seed(app);
 

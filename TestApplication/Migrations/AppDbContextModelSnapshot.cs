@@ -36,7 +36,7 @@ namespace TestApplication.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Author");
+                    b.ToTable("Author", (string)null);
                 });
 
             modelBuilder.Entity("TestApplication.DataConnection.Models.Book", b =>
@@ -66,7 +66,7 @@ namespace TestApplication.Migrations
 
                     b.HasIndex("PublisherId");
 
-                    b.ToTable("Books");
+                    b.ToTable("Books", (string)null);
                 });
 
             modelBuilder.Entity("TestApplication.DataConnection.Models.Book_Author", b =>
@@ -89,7 +89,7 @@ namespace TestApplication.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("Books_Authors");
+                    b.ToTable("Books_Authors", (string)null);
                 });
 
             modelBuilder.Entity("TestApplication.DataConnection.Models.BorrowRecord", b =>
@@ -118,7 +118,7 @@ namespace TestApplication.Migrations
 
                     b.HasIndex("MemberId");
 
-                    b.ToTable("BorrowRecords");
+                    b.ToTable("BorrowRecords", (string)null);
                 });
 
             modelBuilder.Entity("TestApplication.DataConnection.Models.Category", b =>
@@ -135,7 +135,7 @@ namespace TestApplication.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Category", (string)null);
                 });
 
             modelBuilder.Entity("TestApplication.DataConnection.Models.Members", b =>
@@ -160,7 +160,7 @@ namespace TestApplication.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Members");
+                    b.ToTable("Members", (string)null);
                 });
 
             modelBuilder.Entity("TestApplication.DataConnection.Models.Publisher", b =>
@@ -177,7 +177,7 @@ namespace TestApplication.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Publisher");
+                    b.ToTable("Publisher", (string)null);
                 });
 
             modelBuilder.Entity("TestApplication.DataConnection.Models.Book", b =>
